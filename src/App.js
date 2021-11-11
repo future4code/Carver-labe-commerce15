@@ -1,37 +1,33 @@
 import React from 'react';
 import logo from './logo.svg';
-import './App.css';
+// import CarrinhoDeCompras from './components/CarrinhoDeCompras';
+import Filtros from './components/Filtros';
+import styled from 'styled-components';
+import Produtos from './components/Produtos';
 import CarrinhoDeCompras from './components/CarrinhoDeCompras';
 
-function App() {
-  
-  function adicionaCarrinho()  {
-    
-    
-    return produto1
-  }
+const ContainerPrincipal = styled.div`
+  display: grid;
+  grid-template-rows: 1fr;
+  grid-template-columns: 1fr 2fr 1fr;
+  padding: 1vh;
+  border: 1px solid Black;
+`
 
-  const produto1 = {
-    id: Date.now(),
-    name: "Camiseta",
-    valor: 25.00,
-    imageUrl: "https://picsum.photos/200/200",
-  }
+function App() {
 
   return (
-  
-  
-    <div>
-
-
-      <button onClick={
-        <CarrinhoDeCompras 
-          nome={produto1.name}
-
-        /> 
+    <ContainerPrincipal>
       
-      }>Adicionar ao Carrinho</button> 
-    </div>
+      <Filtros />
+        
+      <Produtos />  
+
+      <CarrinhoDeCompras />
+      
+      
+      
+    </ContainerPrincipal>
   );
 }
 
