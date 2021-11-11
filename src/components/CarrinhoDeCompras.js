@@ -33,3 +33,4 @@ export function CarrinhoDeCompras(props) {
     );
 }
 
+export default CarrinhoDeCompras;

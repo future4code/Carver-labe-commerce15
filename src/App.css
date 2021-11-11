@@ -1,38 +1,143 @@
-.App {
-  text-align: center;
+
+@import url('https://fonts.googleapis.com/css2? família = Barlow: peso @ 500; 600 &family = Roboto: wght @ 100 & display = swap');
+
+@import url('https://fonts.googleapis.com/css2? family = Montserrat & display = swap');
+
+@import url('https://fonts.googleapis.com/css2? family = Zen + Maru + Gothic & display = swap');
+
+
+
+*{
+    margin: 0px;
+    padding: 0px;
+    font-family: 'Zen Maru Gothic', sans-serif;
+    font-weight:normal;
+    font-size: 16px;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body {
+    display: grid;
+    grid-template-rows: 135px 1fr 35px;
+    min-height: 100vh;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+#container-header {
+    background-color: #3498DB   ;
+    display: flex;
+    flex-direction: column;
+}
+
+#menu-home {
+    text-align: center;
+}
+
+#container-header img {
+    height: 120%;
+}
+
+#menu-horizontal ul {
+    display: inline;
+    padding: 2.5px;
+    font-weight: bold;
+    color: #fff;
+} 
+#menu-horizontal ul li{
+    display: inline;
+    padding: 2.5px;
+    font-weight: bold;
+    color: #fff;
+}
+
+#menu-horizontal a {
+    padding: 2.5px 0px;
+    text-decoration: none;
+    color: #ffffff;
+
+}
+
+#menu-horizontal a:hover {
+    background-color: #ffbd59 ;
+    padding: 3.5px 4px;
+    font-size: 16px;
+    color: #fff;
+
+}
+
+#foto-terra{
+    width: 100%;
   }
+
+  #container-footer {
+    background-color: #3498DB;
+    padding: 1%;
+    text-align: center;
+    height: 60px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+#container-footer p {
+    font-size: 12px;
+    color: #fff;
 }
 
-.App-link {
-  color: #61dafb;
+.imagem{
+    width: 20px;
+    padding: 6px;
+    justify-content: space-around;
+}
+.redes-sociais{
+    flex: 1;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.roupas-espaciais-flex-container{
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    background-color: white;
+}
+
+.item-roupa-flex{
+    margin: 6px 10px 8px 35px;
+    width: 200px;
+    border: 1px solid white;
+    text-align: center;
+    background: white;
+    box-shadow: 0 0 1em darkgrey;
+}
+
+.foto-roupa-espacial{
+    width: 200px;
+    margin-bottom: 5px;
+}
+
+p{
+    font-size: small;
+    margin-top: 7px;
+    margin-bottom: 5px;
+}
+
+.carrinho-flex-container{
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    background-color: black;
+}
+
+.roupa-carrinho-flex{
+    margin: 6px 10px 8px 6px;
+    width: 100%;
+    border: 1px solid white;
+    /* text-align: center; */
+    background: white;
+    box-shadow: 0 0 1em darkgrey;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.label-quantidade{
+    display: block;
+}
+
+.input-quantidade{
+    width: 84px;
 }
