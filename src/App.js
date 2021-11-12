@@ -12,56 +12,56 @@ import './App.css'
 
 class App extends React.Component {
     state = {
-      produtos: [{
-        id:1,
-        name:"Blusa",
-        descrition:"Camiseta espacial fabulosa",
-        value:10.00,
-        image:camisa1
-      },
-      {
-        id:2,
-        name:"Camiseta do espaço",
-        descrition:"Camiseta espacial fabulosa",
-        value:20.00,
-        image:camisa2
-      },
-      {
-        id:3,
-        name:"Camiseta do espaço",
-        descrition:"Camiseta espacial fabulosa",
-        value:30.00,
-        image:camisa3
-      },
-      {
-        id:4,
-        name:"Camiseta do espaço",
-        descrition:"Camiseta espacial fabulosa",
-        value:40.00,
-        image:camisa4
-      },
-      {
-        id:5,
-        name:"Camiseta do espaço",
-        descrition:"Camiseta espacial fabulosa",
-        value:50.00,
-        image:camisa5
-      },
-      {
-        id:6,
-        name:"Camiseta do espaço",
-        descrition:"Camiseta espacial fabulosa",
-        value:70.00,
-        image:camisa8
-      }
-    
-      ],
-
+     
       Sacola: [],
       FiltroNome:''
     }
 
+    produtos = [{
+      id:1,
+      name:"Blusa",
+      descrition:"Camiseta espacial fabulosa",
+      value:10.00,
+      image:camisa1
+    },
+    {
+      id:2,
+      name:"Camiseta do espaço",
+      descrition:"Camiseta espacial fabulosa",
+      value:20.00,
+      image:camisa2
+    },
+    {
+      id:3,
+      name:"Camiseta do espaço",
+      descrition:"Camiseta espacial fabulosa",
+      value:30.00,
+      image:camisa3
+    },
+    {
+      id:4,
+      name:"Camiseta do espaço",
+      descrition:"Camiseta espacial fabulosa",
+      value:40.00,
+      image:camisa4
+    },
+    {
+      id:5,
+      name:"Camiseta do espaço",
+      descrition:"Camiseta espacial fabulosa",
+      value:50.00,
+      image:camisa5
+    },
+    {
+      id:6,
+      name:"Camiseta do espaço",
+      descrition:"Camiseta espacial fabulosa",
+      value:70.00,
+      image:camisa8
+    }
   
+    ]
+
     AdicionarSacola(item){
       console.log("oi")
       console.log(item)
@@ -73,9 +73,9 @@ class App extends React.Component {
     FiltrarNome(item){
       this.setState({FiltroNome:item})
       console.log(this.state.FiltroNome)
-      let produtosFiltro = this.state.produtos
+      let produtosFiltro = this.produtos
       if(item){
-        this.state.produtos = produtosFiltro.filter((produto)=>{
+        this.produtos = produtosFiltro.filter((produto)=>{
           //console.log(); 
             let pesquisa
             if(produto.name.includes(this.state.FiltroNome)){
@@ -95,13 +95,13 @@ class App extends React.Component {
       console.log("Tem filtro")
     }else{
       console.log("Nao tem Filtro")
-      console.log(this.state.produtos.length);
-      if(this.state.produtos.length > 0 ){
+      console.log(this.produtos.length);
+      if(this.produtos.length > 0 ){
         console.log("tem produtos");
-        localStorage.setItem('Produtos',JSON.stringify(this.state.produtos))
+        localStorage.setItem('Produtos',JSON.stringify(this.produtos))
       }else{
         console.log("nao tem produtos");
-        this.state.produtos = JSON.parse(localStorage.getItem('Produtos'))
+        this.produtos = JSON.parse(localStorage.getItem('Produtos'))
       }
     }
     if (!localStorage.getItem('Sacola')) {
@@ -153,7 +153,7 @@ class App extends React.Component {
   
 </div>
 <div class="roupas-espaciais-flex-container">
-{this.state.produtos.map((produto) => (
+{this.produtos.map((produto) => (
  <div class="item-roupa-flex">
    <a>
        <img src={produto.image} alt="roupa espacial" class="foto-roupa-espacial"/>
