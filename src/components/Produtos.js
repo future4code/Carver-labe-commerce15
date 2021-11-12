@@ -15,75 +15,33 @@ const ContainerProdutos = styled.div`
   
 
 `
-const InputFiltro = styled.div`
-  padding-top: 3px; 
-  margin-left: 1vh;     
-`
 
-const produtos = [
-    {
-        id: 1,
-        name: "Camiseta",
-        valor: 25.00,
-        imageUrl: "https://picsum.photos/200/200",
-    },
-
-    {
-        id: 2,
-        name: "Camiseta",
-        valor: 35.00,
-        imageUrl: "https://picsum.photos/200/200",
-    },
-
-    {
-        id: 3,
-        name: "Camiseta",
-        valor: 45.00,
-        imageUrl: "https://picsum.photos/200/200",
-    },
-
-    {
-        id: 4,
-        name: "Camiseta",
-        valor: 55.00,
-        imageUrl: "https://picsum.photos/200/200",
-    },
-
-    {
-        id: 5,
-        name: "Camiseta",
-        valor: 65.00,
-        imageUrl: "https://picsum.photos/200/200",
+export default class Produtos extends React.Component {
+    listaDeProdutos = (lista) => {
+        return (
+            <CardProdutos
+                {...lista}
+                enviaProCarrinho={this.props.enviaProCarrinho}
+            />
+        )
     }
-]
 
-export {produtos};
+    produtos1 = this.props.produtos
+    listagemProdutos = this.produtos1.map(this.listaDeProdutos)
 
-function listaDeProdutos(lista) {
-    return (
-        <CardProdutos
-            {...lista}
-        />
-    )
+    quantidadeProdutos = 5
+
+    render() {
+        return (
+            <ContainerPrinc>
+                <p>Quantidade de Produtos: {this.quantidadeProdutos}</p>
+                <ContainerProdutos>
+
+                    {this.listagemProdutos}
+
+                </ContainerProdutos>
+            </ContainerPrinc>
+        );
+    }
+
 }
-
-const listagemProdutos = produtos.map(listaDeProdutos)
-
-const quantidadeProdutos = 5
-
-
-function Produtos() {
-
-    return (
-        <ContainerPrinc>
-            <p>Quantidade de Produtos: {quantidadeProdutos}</p>
-            <ContainerProdutos>
-                
-                {listagemProdutos}
-
-            </ContainerProdutos>
-        </ContainerPrinc>
-    );
-}
-
-export default Produtos;

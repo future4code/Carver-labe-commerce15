@@ -1,9 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import ItensCarrinho from "./ItensCarrinho";
-import CardProdutos from "./CardProdutos";
-import {produtos} from "./Produtos";
-import Produtos from "./Produtos";
+import { ItensCarrinho } from "./ItensCarrinho";
 
 const ContainerCarrinho = styled.div`
   display: flex;
@@ -15,43 +12,44 @@ const Itens = styled.div`
   padding-top: 3px; 
   margin-left: 1vh;     
 `
-export default class CarrinhoDeCompras extends React.Component{
+export default class CarrinhoDeCompras extends React.Component {
 
-    state = {
-        produtos: []
-    }
-    
+    // componentDidUpdate(prevProps, prevState){
+    //     if (prevState.prodNoCarrinho !== this.props.prodNoCarrinho) {
+    //         () => this.itensNoCarrinho
+    //       }
+    // }
 
-//  adicionaItem(id) {
-//     console.log(id)
-//     // console.log(listaDeProdutos.id)
+    // produtos2 = this.props.prodNoCarrinho
 
-// }
+    valorTotal = () => {
+        let total = 0
 
-render(){
-    // {this.adicionaItem(this.props.id)}
-
-    // this.adicionaItem(this.props.id)
-
-    const adicionaItem = () => {
-        return console.log(this.props.ident)
+        for (let produtos3 of this.props.prodNoCarrinho) {
+            total = (total + (produtos3.valor * produtos3.quantidade))
+        }
+        console.log(total)
+        return total
     }
 
-    return (
-        
-        
-        
-        <ContainerCarrinho>
-            {adicionaItem}
-            <h4>Carrinho:</h4>
 
-            <Itens><ItensCarrinho
-                
-            /></Itens>
+    render() {
+        return (
+            <ContainerCarrinho>
+                <h4>Carrinho:</h4>
+                <Itens>
+                    
 
-        </ContainerCarrinho>
-    );
-}
+                    {this.props.prodNoCarrinho.map((produto) => {
+                        return <ItensCarrinho
+                            Item={produto}        
+                        />
+                    })}
+                </Itens>
+                <p>Valor total: R${this.valorTotal()},00</p>
+            </ContainerCarrinho>
+        );
+    }
 }
 
 
