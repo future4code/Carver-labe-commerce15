@@ -149,4 +149,16 @@ p{
   background-color: white;
   font-family:'Nunito', sans-serif;
 }
-
+.ordernacao{
+  position:relative; 
+  left:88%;  
+}
+.container{
+  display:flex ;
+}
+.filtro-camisas{
+  border: 1px solid white;
+  text-align: center;
+  background: white;
+  box-shadow: 0 0 1em darkgrey;
+}
