@@ -1,21 +1,33 @@
 import React from 'react';
-import logo from './logo.svg';
+import { Link } from "react-router-dom";
 import space from './img/space.png';
 import terra from './img/terra.png';
-import camisa1 from './img/camisa1.jpeg';
+import camisa1 from './img/camiseta1.jpeg';
 import camisa2 from './img/camiseta2.jpeg';
 import camisa3 from './img/camiseta3.jpeg';
 import camisa4 from './img/camiseta4.jpeg';
 import camisa5 from './img/camiseta5.jpeg';
-import camisa6 from './img/camiseta6.jpeg';
 import camisa8 from './img/camiseta8.jpeg';
-import camisa9 from './img/camiseta9.jpeg';
 
 import './App.css';
-import CarrinhoDeCompras from './components/CarrinhoDeCompras';
+import Sacola from './components/Sacola';
 
 function App() {
+  let Sacola
+  if (!localStorage.getItem('Sacola')) {
+    Sacola  = []
+  }else{
+    Sacola = JSON.parse(localStorage.getItem('Sacola'))
+  }
   
+
+  function AdicionarSacola(item){
+    console.log("oi")
+    console.log(item)
+    Sacola.push(item)
+    localStorage.setItem('Sacola',JSON.stringify(Sacola))
+
+  }
   
   let produtos = [{
     id:1,
@@ -25,43 +37,43 @@ function App() {
     image:camisa1
   },
   {
-    id:1,
+    id:2,
     name:"Camiseta do espaço",
     descrition:"Camiseta espacial fabulosa",
     value:70.00,
     image:camisa2
   },
   {
-    id:1,
+    id:3,
     name:"Camiseta do espaço",
     descrition:"Camiseta espacial fabulosa",
     value:70.00,
     image:camisa3
   },
   {
-    id:1,
+    id:4,
     name:"Camiseta do espaço",
     descrition:"Camiseta espacial fabulosa",
     value:70.00,
     image:camisa4
   },
   {
-    id:1,
+    id:5,
     name:"Camiseta do espaço",
     descrition:"Camiseta espacial fabulosa",
     value:70.00,
     image:camisa5
   },
   {
-    id:1,
+    id:6,
     name:"Camiseta do espaço",
     descrition:"Camiseta espacial fabulosa",
     value:70.00,
     image:camisa8
   }
 
-]
-
+  ]
+  localStorage.setItem('Produtos',JSON.stringify(produtos))
   return (
   
     <div>
@@ -72,8 +84,8 @@ function App() {
     <div id="menu-horizontal">
 
         <ul>
-            <li><a href="index.html">Home </a></li> |
-            <li><a href="carrinho.html">Carrinho</a></li> 
+            <li><Link to="/">Home</Link></li> |
+            <li><Link to="/Sacola">Carrinho</Link></li>
         </ul>
     </div>
 </div>
@@ -83,7 +95,6 @@ function App() {
 <div id="conteudo">
     <div id="inicio-home">
         <img id="foto-terra" src={terra}/>
-        <h1 class="titulo-empresa">Um novo conceito de moda<br/> feito pra você.<br/></h1>
         <br/>
     </div>    
 
@@ -99,9 +110,10 @@ function App() {
       <br/>
       <p>{produto.descrition}</p>
       <h3>R$: {produto.value}</h3>
+      <button class="botao-adc-carrinho" onClick={() => AdicionarSacola(produto)}>adcionar ao carrinho</button>
+
     </div>
   ))}
-    
     
 </div>    
 </main>

@@ -5,6 +5,7 @@
 
 @import url('https://fonts.googleapis.com/css2? family = Zen + Maru + Gothic & display = swap');
 
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200&display=swap');
 
 
 *{
@@ -102,6 +103,7 @@ body {
     text-align: center;
     background: white;
     box-shadow: 0 0 1em darkgrey;
+    height: 360px;
 }
 
 .foto-roupa-espacial{
@@ -141,3 +143,10 @@ p{
 .input-quantidade{
     width: 84px;
 }
+
+.botao-adc-carrinho{
+  border-radius: 5px;
+  background-color: white;
+  font-family:'Nunito', sans-serif;
+}
+
