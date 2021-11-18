@@ -1,14 +1,24 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import { render } from "react-dom";
+import {
+  BrowserRouter,
+  Routes,
+  Route
+} from "react-router-dom";
 import './index.css';
 import App from './App';
+import Sacola from './components/Sacola';
 import * as serviceWorker from './serviceWorker';
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
+const rootElement = document.getElementById("root");
+render(
+  <BrowserRouter>
+    <Routes>
+      <Route path="/" element={<App />} />
+      <Route path="Sacola" element={<Sacola />} />
+      </Routes>  
+    </BrowserRouter>,
+  rootElement
 );
 
 // If you want your app to work offline and load faster, you can change
